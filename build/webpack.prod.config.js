@@ -51,15 +51,56 @@ module.exports = merge(baseWebpackConfig, {
             "process.env.NODE_ENV": JSON.stringify("production")
         }),
         new webpack.optimize.UglifyJsPlugin(),
+        // new HtmlWebpackPlugin({
+        //     filename: "index.html",
+        //     template: "index.tpl.html"
+        // }),
+        // 生成入口首页
         new HtmlWebpackPlugin({
-            filename: "index.html",
-            template: "index.tpl.html"
+            filename: path.resolve(__dirname, `../dist/web/index.html`),
+            template: 'index.tpl.html',
+            chunks: ['manifest', 'vendor', 'web-vendor', 'web'],
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            filename: path.resolve(__dirname, `../dist/admin/index.html`),
+            template: 'index.tpl.html',
+            chunks: ['manifest', 'vendor', 'admin-vendor', 'admin'],
+            inject: true
+        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'vendor',
+        //     minChunks: function(module, count) {
+        //         return module.resource && /\.js$/.test(module.resource) && module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
+        //     }
+        // }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'manifest',
+        //     chunks: ['vendor']
+        // })
+        // css提取
+        new ExtractTextPlugin({
+            allChunks: true,
+            filename: "css/[name].css?[contenthash:8]"
+        }),
+        // js提取
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'web-vendor',
+            chunks: ['web'],
+            minChunks: function (module) {
+                return module.context && module.context.indexOf("node_modules") !== -1;
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'admin-vendor',
+            chunks: ['admin'],
+            minChunks: function (module) {
+                return module.context && module.context.indexOf("node_modules") !== -1;
+            }
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: function(module, count) {
-                return module.resource && /\.js$/.test(module.resource) && module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
-            }
+            chunks: ['admin-vendor', 'web-vendor']
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest',

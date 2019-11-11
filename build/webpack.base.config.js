@@ -6,14 +6,15 @@ function resolve(relPath) {
 }
 module.exports = {
     entry: {
-        app: resolve("../src/main.js")
+        web: resolve("../src/main.js")
     },
     output: {
         filename: "js/[name].js",
         chunkFilename: "js/[name].[chunkhash].js"
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.js$/,
                 loader: "babel-loader",
                 options: {

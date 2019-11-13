@@ -54,7 +54,8 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.optimize.UglifyJsPlugin(),
         new HtmlWebpackPlugin({
             filename: "index.html",
-            template: "index.tpl.html"
+            template: "index.html",
+            inject: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',

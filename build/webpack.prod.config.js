@@ -51,20 +51,16 @@ module.exports = merge(baseWebpackConfig, {
             "process.env.NODE_ENV": JSON.stringify("production")
         }),
         new webpack.optimize.UglifyJsPlugin(),
-        // new HtmlWebpackPlugin({
-        //     filename: "index.html",
-        //     template: "index.tpl.html"
-        // }),
         // 生成入口首页
         new HtmlWebpackPlugin({
             filename: path.resolve(__dirname, `../dist/web/index.html`),
-            template: 'index.tpl.html',
+            template: 'index.html',
             chunks: ['manifest', 'vendor', 'web-vendor', 'web'],
             inject: true
         }),
         new HtmlWebpackPlugin({
             filename: path.resolve(__dirname, `../dist/admin/index.html`),
-            template: 'index.tpl.html',
+            template: 'index.html',
             chunks: ['manifest', 'vendor', 'admin-vendor', 'admin'],
             inject: true
         }),

@@ -5,10 +5,6 @@ var HtmlWebpackPlugin = require("html-webpack-plugin")
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
 var baseWebpackConfig = require("./webpack.base.config")
 module.exports = merge(baseWebpackConfig, {
-    output: {
-        path: path.resolve(__dirname, "../dist"),
-        publicPath: "/static/"
-    },
     module: {
         rules: [
             {

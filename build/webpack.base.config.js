@@ -11,7 +11,7 @@ module.exports = {
     },
     output: {
         filename: "js/[name].js",
-        chunkFilename: "js/[name].[chunkhash].js"
+        chunkFilename: "js/[name][chunkhash].js"
     },
     module: {
         rules: [

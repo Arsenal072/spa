@@ -1,6 +1,6 @@
 <template>
     <div>
-        这是{{page}}页面
+        这是{{page}}页面 哈哈哈哈哈
     </div>
 </template>
 <script>

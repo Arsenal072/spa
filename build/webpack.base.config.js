@@ -10,6 +10,7 @@ module.exports = {
         admin: resolve('../src/admin/main.js')
     },
     output: {
+        path: '',
         filename: "js/[name].js",
         chunkFilename: "js/[name][chunkhash].js"
     },

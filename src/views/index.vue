@@ -14,6 +14,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 div{
-    color: red;
+    color: #fff;
+    background-color: #3978ff;
 }
 </style>

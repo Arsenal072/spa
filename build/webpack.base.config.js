@@ -5,12 +5,11 @@ function resolve(relPath) {
     return path.resolve(__dirname, relPath)
 }
 module.exports = {
-    entry: {
-        web: resolve("../src/main.js")
-    },
+    entry: path.resolve(__dirname, "../src/main.js"),
     output: {
-        filename: "js/[name].js",
-        chunkFilename: "js/[name].[chunkhash].js"
+        path: path.resolve(__dirname, '../'),
+        filename: "dist/js/[name].js",
+        chunkFilename: "dist/js/[name].[chunkhash].js"
     },
     module: {
         rules: [

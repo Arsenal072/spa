@@ -7,9 +7,9 @@ function resolve(relPath) {
 module.exports = {
     entry: path.resolve(__dirname, "../src/main.js"),
     output: {
-        path: path.resolve(__dirname, '../'),
-        filename: "dist/js/[name].js",
-        chunkFilename: "dist/js/[name].[chunkhash].js"
+        path: path.resolve(__dirname, '../dist'),
+        filename: "[name].js",
+        chunkFilename: "[name].[chunkhash].js"
     },
     module: {
         rules: [

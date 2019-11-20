@@ -19,4 +19,13 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+*{
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #999;
+    color: blue;
+}
 </style>

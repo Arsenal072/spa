@@ -1,6 +1,6 @@
 <template>
     <div>
-        这是{{page}}页面
+        这是web{{page}}页面
     </div>
 </template>
 <script>
@@ -14,6 +14,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 div{
-    color: red;
+    color: #fff;
+    background-color: #3978ff;
 }
 </style>

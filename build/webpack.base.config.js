@@ -1,6 +1,6 @@
 var path = require("path")
 var webpack = require("webpack")
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //引入清除文件插件
 function resolve(relPath) {
     return path.resolve(__dirname, relPath)
 }
@@ -46,5 +46,8 @@ module.exports = {
                 }]
             }
         ]
-    }
+    },
+    plugins: [
+        new CleanWebpackPlugin(), //实例化，参数为目录
+    ]
 }

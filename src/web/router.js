@@ -2,7 +2,7 @@ export default {
     routes: [
         {
             path: '/index',
-            component: ()=>import(/* webpackChunkName: "async" */'./views/index.vue')
+            component: ()=>import(/* webpackChunkName: "ddd" */'./views/index.vue')
         }
     ]
 }

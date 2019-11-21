@@ -25,3 +25,29 @@ cnpm i
 
 --hot：修改代码后，不用自己刷新页面就能看到修改后的结果
 --open：启动后自动打开浏览器
+
+
+**************************************
+output: {
+    path: resolve('../dist'),
+    filename: "[name].js",
+    chunkFilename: "[name][chunkhash].js",
+    publicPath: './'
+},
+
+new HtmlWebpackPlugin({
+    filename: path.resolve(__dirname, `../dist/web.html`),
+    template: 'index.html',
+    chunks: ['manifest', 'vendor', 'web-vendor', 'web'],
+    inject: true
+}),
+new HtmlWebpackPlugin({
+    filename: path.resolve(__dirname, `../dist/admin.html`),
+    template: 'index.html',
+    chunks: ['manifest', 'vendor', 'admin-vendor', 'admin'],
+    inject: true
+})
+
+***************************************
+#访问方式
+http://localhost:8080/dist/web.html#/index

@@ -10,9 +10,10 @@ module.exports = {
         admin: resolve('../src/admin/main.js')
     },
     output: {
-        // path: path.resolve(__dirname, '../'),
-        filename: "dist/[name].js",
-        chunkFilename: "dist/[name][chunkhash].js"
+        path: resolve('../dist'),
+        filename: "[name].js",
+        chunkFilename: "[name][chunkhash].js",
+        publicPath: './'
     },
     module: {
         rules: [

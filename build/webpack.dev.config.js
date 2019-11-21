@@ -19,13 +19,13 @@ module.exports = merge(baseWebpackConfig, {
     plugins: [
         // 生成入口首页
         new HtmlWebpackPlugin({
-            filename: path.resolve(__dirname, `../dist/web/index.html`),
+            filename: path.resolve(__dirname, `../dist/web.html`),
             template: 'index.html',
             chunks: ['manifest', 'vendor', 'web-vendor', 'web'],
             inject: true
         }),
         new HtmlWebpackPlugin({
-            filename: path.resolve(__dirname, `../dist/admin/index.html`),
+            filename: path.resolve(__dirname, `../dist/admin.html`),
             template: 'index.html',
             chunks: ['manifest', 'vendor', 'admin-vendor', 'admin'],
             inject: true
